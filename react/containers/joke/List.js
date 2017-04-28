@@ -87,7 +87,7 @@ class List extends React.Component {
             renderItem={({ item }) =>
               <Item
                 item={item}
-                onPress={() => navigation.navigate('Detail', { joke: item, user: item.id })}
+                onPress={() => navigation.navigate('Detail', { joke: item })}
               />
             }
             ListFooterComponent={() => {

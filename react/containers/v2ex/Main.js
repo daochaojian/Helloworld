@@ -1,22 +1,15 @@
 import React from 'react';
 import { FlatList, View, Text, RefreshControl } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 import lodash from 'lodash';
 import styles from '../../styles/v2ex/main';
 import colors from '../../styles/colors';
 import Item from '../../components/v2ex/Item';
+import Detail from '../../components/v2ex/Detail';
 
 class Main extends React.Component {
   static propTypes = {
     navigation: React.PropTypes.shape({}).isRequired,
-  }
-  static tabBarOptions = {
-    activeTintColor: '#e91e63',
-    labelStyle: {
-      fontSize: 12,
-    },
-    style: {
-      backgroundColor: 'blue',
-    },
   }
   constructor(props) {
     super(props);
@@ -87,7 +80,7 @@ class Main extends React.Component {
   }
 /* eslint-enable */
   render() {
-    console.log(this.state);
+    const { navigation } = this.props;
     const bool = true;
     const refreshControl = (
       <RefreshControl
@@ -111,6 +104,7 @@ class Main extends React.Component {
           renderItem={({ item }) =>
             <Item
               item={item}
+              onPress={() => navigation.navigate('List', { list: item })}
             />
           }
           ListFooterComponent={() => <View style={styles.tips}><Text style={styles.tips}>
@@ -127,4 +121,13 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+const Lists = StackNavigator({
+  Index: {
+    screen: Main,
+  },
+  List: {
+    screen: Detail,
+  },
+});
+
+export default Lists;

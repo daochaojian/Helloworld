@@ -4,19 +4,19 @@ import Video from 'react-native-video';
 import styles from '../../styles/joke/detail';
 
 class Detail extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: `Chat with ${navigation.state.params.user}`,
-  });
   static propTypes = {
     navigation: React.PropTypes.shape({}).isRequired,
   }
+  static navigationOptions = {
+    title: `${this.props}`,
+  }
   componentWillMount() {
-    console.log(Detail.navigationOptions);
+    // console.log(Detail.navigationOptions);
   }
   render() {
     const { navigation } = this.props;
     const { params } = navigation.state;
-    // console.log(navigationOptions);
+    // console.log(Detail.navigationOptions);
     return (
       <View style={styles.container}>
         <ScrollView
