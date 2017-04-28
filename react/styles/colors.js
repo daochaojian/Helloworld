@@ -20,6 +20,7 @@ const colors = {
   themeDarkGray: '#bababa',
   themeGray: '#e8e8e8',
   themeLightGray: '#f8f8f8',
+  themeDarkerGray: '#e2e2e2',
   themeGreen: '#56cb60',
   themeAquaGreen: '#48d2a0',
   themeLightAquaGreen: '#6ddbb3',

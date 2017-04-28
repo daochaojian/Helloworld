@@ -3,23 +3,20 @@ import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
 import Video from 'react-native-video';
 import styles from '../../styles/joke/detail';
 
-class Detail extends React.PureComponent {
+class Detail extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `Chat with ${navigation.state.params.user}`,
+  });
   static propTypes = {
     navigation: React.PropTypes.shape({}).isRequired,
   }
-  static navigationOptions = ({ navigation }) => ({
-    title: `Chat with ${this.props.navigation.state.params.joke.id}`,
-  });
-  constructor() {
-    super();
-    this.state = {
-      expand: false,
-    };
+  componentWillMount() {
+    console.log(Detail.navigationOptions);
   }
   render() {
     const { navigation } = this.props;
     const { params } = navigation.state;
-    console.log(params.joke.id);
+    // console.log(navigationOptions);
     return (
       <View style={styles.container}>
         <ScrollView

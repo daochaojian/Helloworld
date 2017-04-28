@@ -4,9 +4,8 @@ import lodash from 'lodash';
 import styles from '../../styles/joke/list';
 import colors from '../../styles/colors';
 import Item from '../../components/joke/Item';
-import Detail from './Detail';
 
-class List extends React.PureComponent {
+class List extends React.Component {
   static navigationOptions = {
     title: 'hi! jojo',
   }
@@ -88,7 +87,7 @@ class List extends React.PureComponent {
             renderItem={({ item }) =>
               <Item
                 item={item}
-                onPress={() => navigation.navigate('Detail', { joke: item })}
+                onPress={() => navigation.navigate('Detail', { joke: item, user: item.id })}
               />
             }
             ListFooterComponent={() => {

@@ -1,18 +1,43 @@
-import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import 'moment/locale/zh-cn';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 // import Container from './containers/MainPage';
-import List from './containers/joke/List';
-import Detail from './containers/joke/Detail';
-
+// import List from './containers/joke/List';
+// import Detail from './containers/joke/Detail';
+import Main from './containers/v2ex/Main';
+import Apple from './containers/v2ex/Apple';
+import Creative from './containers/v2ex/Creative';
+import Job from './containers/v2ex/Job';
+import colors from './styles/colors';
 // const App = () => (
 //   <Navigator
 //     initialRoute={{ Component: List }}
 //     renderScene={({ Component }, navigator) => <Component navigator={navigator} />}
 //   />
 // );
-const App = StackNavigator({
-  Home: { screen: List },
-  Detail: { screen: Detail },
+// const App = StackNavigator({
+//   Home: { screen: List },
+//   Detail: { screen: Detail },
+// });
+
+const App = TabNavigator({
+  Main: { screen: Main },
+  Apple: { screen: Apple },
+  Creative: { screen: Creative },
+  Job: { screen: Job },
+}, {
+  tabBarOptions: {
+    activeTintColor: '#e91e63',
+    labelStyle: {
+      position: 'absolute',
+      top: 10,
+      left: 10,
+      fontSize: 20,
+      textAlign: 'center',
+    },
+    style: {
+      backgroundColor: colors.white,
+    },
+  },
 });
 
 export default App;
